@@ -19,7 +19,7 @@ QByteArray parse (QString command, qintptr socketDescriptor) {
             if (parameters.length() == 3) return reg(parameters.at(0), parameters.at(1), parameters.at(2), socketDescriptor);
             else return "wrong number of parameters\n";
         }
-        else return "Uncknown command\n";
+        else return "Unknown command\n";
 }
 
 

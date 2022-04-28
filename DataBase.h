@@ -44,6 +44,24 @@ class DataBase
         static DataBase * p_instance;
         static DataBaseDestroyer destroyer;
         static QSqlDatabase db;
+        DataBase(){
+            db = QSqlDatabase::addDatabase("QSQLITE");
+            db.setDatabaseName("db11.db");
+            if (!db.open())
+               { qDebug() << db.lastError().text();}
+            else {
+                QSqlQuery query;
+                                   query.exec("create table User "
+                                             "(login varchar(40),"
+                                              "password varchar(40), "
+                                             "email varchar(40))"
+                                             );
+            }
+
+        }
+        ~DataBase(){
+            db.close();
+        }
     public:
         /*!
          * \brief getInstance - функция, вовзращающая ссылку на текущую бд
@@ -55,19 +73,7 @@ class DataBase
             {
                 p_instance = new DataBase();
 
-                p_instance->db = QSqlDatabase::addDatabase("QSQLITE");
-                p_instance->db.setDatabaseName("db5.db");
 
-                if (!p_instance->db.open())
-                   { qDebug() << p_instance->db.lastError().text();}
-                else {
-                    QSqlQuery query;
-                    query.exec("create table User "
-                              "(login varchar(40),"
-                               "password varchar(40), "
-                              "email varchar(40))"
-                              );
-                }
 
 
                 destroyer.initialize(p_instance);
@@ -83,16 +89,16 @@ class DataBase
          * \return Возвращает результат записи
          */
         static QString addData(QString login, QString password, QString email) {
-            if (DataBase::dataCheck(login, password) != "NoSuchUser") return "SuchUserAlreadyExists";
+            if (DataBase::dataCheck(login, password) != "No User.") return "SuchUserAlreadyExists";
             else {
-                QSqlQuery query(p_instance->db);
+                QSqlQuery query(db);
                 query.prepare("INSERT INTO User(login, password, email)"
                                 "VALUES (:login, :password, :email)");
                 query.bindValue(":login", login);
                 query.bindValue(":password", password);
                 query.bindValue(":email", email);
                 query.exec();
-            return "True";
+            return "All ok";
             }
         };
 
@@ -103,20 +109,16 @@ class DataBase
          * \return Возвращает результат проверки
          */
         static QString dataCheck(QString login, QString password) {
-            QSqlQuery query(p_instance->db);
+            QSqlQuery query(db);
             query.prepare("SELECT * FROM User where login = :login");
             query.bindValue(":login", login);
             query.exec();
             QSqlRecord rec = query.record();
             int PasswordIndex = rec.indexOf("password");
-            query.prepare("SELECT * FROM User");
-            query.exec();
-            QSqlRecord rec2 = query.record();
-            qDebug() << rec2;
-            if (!query.next()) return "NoSuchUser";
+            if (!query.next()) return "No User.";
             else {
                 QString TruePassword = query.value(PasswordIndex).toString();
-                if (TruePassword == password) return "True";
+                if (TruePassword == password) return "All ok";
                 else return "False";
             }
         }
@@ -125,10 +127,7 @@ class DataBase
         /*!
          * \brief closeDB - функция, закрываюшая базу данных
          */
-        static void closeDB()
-        {
-            p_instance->db.close();
-        }
+
 
 };
 
