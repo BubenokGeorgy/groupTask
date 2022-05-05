@@ -36,5 +36,7 @@ QByteArray auth(QString login, QString password, qintptr socketDescriptor);
  * \return Возвращает сообщение с результатом регистрации пользователя
  */
 QByteArray reg(QString login, QString password, QString email, qintptr socketDescriptor);
+QByteArray add(QString login, QString num, qintptr socketDescriptor);
+QByteArray getStat(QString login, qintptr socketDescriptor);
 
 #endif

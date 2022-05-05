@@ -46,15 +46,18 @@ class DataBase
         static QSqlDatabase db;
         DataBase(){
             db = QSqlDatabase::addDatabase("QSQLITE");
-            db.setDatabaseName("db11.db");
-            if (!db.open())
-               { qDebug() << db.lastError().text();}
-            else {
+            db.setDatabaseName("db.db");
+            if (db.open())
+               {
                 QSqlQuery query;
                                    query.exec("create table User "
                                              "(login varchar(40),"
                                               "password varchar(40), "
-                                             "email varchar(40))"
+                                             "email varchar(40), "
+                                              "task1 integer,"
+                                              "task2 integer,"
+                                              "task3 integer,"
+                                              "task4 integer)"
                                              );
             }
 
@@ -89,7 +92,7 @@ class DataBase
          * \return Возвращает результат записи
          */
         static QString addData(QString login, QString password, QString email) {
-            if (DataBase::dataCheck(login, password) != "No User.") return "SuchUserAlreadyExists";
+            if (DataBase::dataCheck(login, password) != "404") return "200";
             else {
                 QSqlQuery query(db);
                 query.prepare("INSERT INTO User(login, password, email)"
@@ -98,8 +101,41 @@ class DataBase
                 query.bindValue(":password", password);
                 query.bindValue(":email", email);
                 query.exec();
-            return "All ok";
+            return "true";
             }
+        };
+
+        static QString get(QString login) {
+            QSqlQuery query(db);
+            query.prepare("SELECT * FROM User where login = :login");
+            query.bindValue(":login", login);
+            query.exec();
+            QSqlRecord rec = query.record();
+            int taskIndex = rec.indexOf("task1");
+            query.next();
+            QString res = QString::number(query.value(taskIndex).toInt())+" ";
+            res.append(QString::number(query.value(taskIndex+1).toInt())+" ");
+            res.append(QString::number(query.value(taskIndex+2).toInt())+" ");
+            res.append(QString::number(query.value(taskIndex+3).toInt()));
+            qDebug() << res;
+            return res;
+        }
+
+        static QString addTask(QString login, QString num) {
+
+             QSqlQuery query(db);
+             query.prepare("SELECT * FROM User where login = :login");
+             query.bindValue(":login", login);
+             query.exec();
+             QSqlRecord rec = query.record();
+             int taskIndex = rec.indexOf("task"+num);
+             query.next();
+             int taskNum = query.value(taskIndex).toInt();
+             query.prepare("UPDATE User SET task"+num+"=:num WHERE login = :login");
+             query.bindValue(":login", login);
+             query.bindValue(":num", taskNum+1);
+             query.exec();
+            return "true";
         };
 
         /*!
@@ -115,11 +151,11 @@ class DataBase
             query.exec();
             QSqlRecord rec = query.record();
             int PasswordIndex = rec.indexOf("password");
-            if (!query.next()) return "No User.";
+            if (!query.next()) return "404";
             else {
                 QString TruePassword = query.value(PasswordIndex).toString();
-                if (TruePassword == password) return "All ok";
-                else return "False";
+                if (TruePassword == password) return "true";
+                else return "400";
             }
         }
 

@@ -28,7 +28,6 @@ void MyTcpThread::readyRead() {
     if (socket->bytesAvailable()>0) {
         QByteArray command = socket->readAll();
         if (command.length() > 0) {
-            command.remove(command.size()-2,2);
             socket->write(parse(command, socket->socketDescriptor()));
         }
     }
