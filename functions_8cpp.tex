@@ -1,0 +1,98 @@
+\hypertarget{functions_8cpp}{}\doxysection{functions.\+cpp File Reference}
+\label{functions_8cpp}\index{functions.cpp@{functions.cpp}}
+
+
+Файл с имплементацией функций, заданных в \mbox{\hyperlink{functions_8h}{functions.\+h}}.  
+
+
+{\ttfamily \#include \char`\"{}functions.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Data\+Base.\+h\char`\"{}}\newline
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+QByte\+Array \mbox{\hyperlink{functions_8cpp_a6b50a175c7f6879c7b24c3d5a69d72b6}{parse}} (QString command, qintptr socket\+Descriptor)
+\begin{DoxyCompactList}\small\item\em parse -\/ функция, выполняющая парсинг сообщений клиента для дальней передачи параметров функциям \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{functions_8cpp_a3b657866307b807caa30a3e8b4ca0da4}\label{functions_8cpp_a3b657866307b807caa30a3e8b4ca0da4}} 
+QByte\+Array {\bfseries add} (QString login, QString num, qintptr socket\+Descriptor)
+\item 
+\mbox{\Hypertarget{functions_8cpp_a0e25948b009029cbf7bda5d9836af316}\label{functions_8cpp_a0e25948b009029cbf7bda5d9836af316}} 
+QByte\+Array {\bfseries get\+Stat} (QString login, qintptr socket\+Descriptor)
+\item 
+QByte\+Array \mbox{\hyperlink{functions_8cpp_a7247a7e04dc1e3a842343f0d879b4df5}{auth}} (QString login, QString password, qintptr socket\+Descriptor)
+\begin{DoxyCompactList}\small\item\em auth -\/ функция, коотрая проверчяет существование аккаунта и если он есть, то проводится аутентификация клиента \end{DoxyCompactList}\item 
+QByte\+Array \mbox{\hyperlink{functions_8cpp_a38d87a7e02adf3da13f5636f3552164f}{reg}} (QString login, QString password, QString email, qintptr socket\+Descriptor)
+\begin{DoxyCompactList}\small\item\em reg -\/ функция, которая проверяет существование аккаунта клиента и если его нет,то проводится регистрация клиента \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Файл с имплементацией функций, заданных в \mbox{\hyperlink{functions_8h}{functions.\+h}}. 
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{functions_8cpp_a7247a7e04dc1e3a842343f0d879b4df5}\label{functions_8cpp_a7247a7e04dc1e3a842343f0d879b4df5}} 
+\index{functions.cpp@{functions.cpp}!auth@{auth}}
+\index{auth@{auth}!functions.cpp@{functions.cpp}}
+\doxysubsubsection{\texorpdfstring{auth()}{auth()}}
+{\footnotesize\ttfamily QByte\+Array auth (\begin{DoxyParamCaption}\item[{QString}]{login,  }\item[{QString}]{password,  }\item[{qintptr}]{socket\+Descriptor }\end{DoxyParamCaption})}
+
+
+
+auth -\/ функция, коотрая проверчяет существование аккаунта и если он есть, то проводится аутентификация клиента 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em login} & -\/ логин, полученный из сообщения пользователя \\
+\hline
+\mbox{\texttt{ in}}  & {\em password} & -\/ пароль, полученный из сообщения пользователя \\
+\hline
+\mbox{\texttt{ in}}  & {\em socket\+Descriptor} & -\/ дескриптор сокета клиента, совершающего аутентификацию \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Возвращает сообщение с результатом аутентификации пользователя 
+\end{DoxyReturn}
+\mbox{\Hypertarget{functions_8cpp_a6b50a175c7f6879c7b24c3d5a69d72b6}\label{functions_8cpp_a6b50a175c7f6879c7b24c3d5a69d72b6}} 
+\index{functions.cpp@{functions.cpp}!parse@{parse}}
+\index{parse@{parse}!functions.cpp@{functions.cpp}}
+\doxysubsubsection{\texorpdfstring{parse()}{parse()}}
+{\footnotesize\ttfamily QByte\+Array parse (\begin{DoxyParamCaption}\item[{QString}]{data\+\_\+from\+\_\+client,  }\item[{qintptr}]{socket\+Descriptor }\end{DoxyParamCaption})}
+
+
+
+parse -\/ функция, выполняющая парсинг сообщений клиента для дальней передачи параметров функциям 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em command} & -\/ сообщение клиента \\
+\hline
+\mbox{\texttt{ in}}  & {\em socket\+Descriptor} & -\/ дескриптор сокета клиента, от которого было получено сообщение \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Возвращает результат работы функции, вызываемой клиентом 
+\end{DoxyReturn}
+\mbox{\Hypertarget{functions_8cpp_a38d87a7e02adf3da13f5636f3552164f}\label{functions_8cpp_a38d87a7e02adf3da13f5636f3552164f}} 
+\index{functions.cpp@{functions.cpp}!reg@{reg}}
+\index{reg@{reg}!functions.cpp@{functions.cpp}}
+\doxysubsubsection{\texorpdfstring{reg()}{reg()}}
+{\footnotesize\ttfamily QByte\+Array reg (\begin{DoxyParamCaption}\item[{QString}]{login,  }\item[{QString}]{password,  }\item[{QString}]{email,  }\item[{qintptr}]{socket\+Descriptor }\end{DoxyParamCaption})}
+
+
+
+reg -\/ функция, которая проверяет существование аккаунта клиента и если его нет,то проводится регистрация клиента 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em login} & -\/ логин, полученный из сообщения пользователя \\
+\hline
+\mbox{\texttt{ in}}  & {\em password} & -\/ создаваемый пароль, полученный из сообщения пользователя \\
+\hline
+\mbox{\texttt{ in}}  & {\em email} & -\/ электронная почта, полученная из сообщения пользователя \\
+\hline
+\mbox{\texttt{ in}}  & {\em socket\+Descriptor} & -\/ дескриптор сокета клиента, совершающего регистрацию \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Возвращает сообщение с результатом регистрации пользователя 
+\end{DoxyReturn}

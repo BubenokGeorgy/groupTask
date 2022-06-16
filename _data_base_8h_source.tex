@@ -1,0 +1,143 @@
+\hypertarget{_data_base_8h_source}{}\doxysection{Data\+Base.\+h}
+\mbox{\hyperlink{_data_base_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 }
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#ifndef DATABASE\_H}}
+\DoxyCodeLine{7 \textcolor{preprocessor}{\#define DATABASE\_H}}
+\DoxyCodeLine{8 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{9 }
+\DoxyCodeLine{10 \textcolor{preprocessor}{\#include <QString>}}
+\DoxyCodeLine{11 \textcolor{preprocessor}{\#include <QVariant>}}
+\DoxyCodeLine{12 \textcolor{preprocessor}{\#include <QDebug>}}
+\DoxyCodeLine{13 \textcolor{preprocessor}{\#include <QSqlDatabase>}}
+\DoxyCodeLine{14 \textcolor{preprocessor}{\#include <QSqlQuery>}}
+\DoxyCodeLine{15 \textcolor{preprocessor}{\#include <QSqlError>}}
+\DoxyCodeLine{16 \textcolor{preprocessor}{\#include <QSqlRecord>}}
+\DoxyCodeLine{17 }
+\DoxyCodeLine{18 \textcolor{keyword}{class }\mbox{\hyperlink{class_data_base}{DataBase}};}
+\DoxyCodeLine{19 }
+\DoxyCodeLine{24 \textcolor{keyword}{class }\mbox{\hyperlink{class_data_base_destroyer}{DataBaseDestroyer}}}
+\DoxyCodeLine{25 \{}
+\DoxyCodeLine{26     \textcolor{keyword}{private}:}
+\DoxyCodeLine{27         \mbox{\hyperlink{class_data_base}{DataBase}} * p\_instance;}
+\DoxyCodeLine{28     \textcolor{keyword}{public}:}
+\DoxyCodeLine{29         \mbox{\hyperlink{class_data_base_destroyer}{\string~DataBaseDestroyer}}() \{ \textcolor{keyword}{delete} p\_instance;\}}
+\DoxyCodeLine{30 }
+\DoxyCodeLine{31         \textcolor{keywordtype}{void} initialize(\mbox{\hyperlink{class_data_base}{DataBase}} * p)}
+\DoxyCodeLine{32         \{}
+\DoxyCodeLine{33             p\_instance = p;}
+\DoxyCodeLine{34         \}}
+\DoxyCodeLine{35 \};}
+\DoxyCodeLine{36 }
+\DoxyCodeLine{41 \textcolor{keyword}{class }\mbox{\hyperlink{class_data_base}{DataBase}}}
+\DoxyCodeLine{42 \{}
+\DoxyCodeLine{43     \textcolor{keyword}{private}:}
+\DoxyCodeLine{44         \textcolor{keyword}{static} \mbox{\hyperlink{class_data_base}{DataBase}} * p\_instance;}
+\DoxyCodeLine{45         \textcolor{keyword}{static} \mbox{\hyperlink{class_data_base_destroyer}{DataBaseDestroyer}} destroyer;}
+\DoxyCodeLine{46         \textcolor{keyword}{static} QSqlDatabase db;}
+\DoxyCodeLine{47         \mbox{\hyperlink{class_data_base}{DataBase}}()\{}
+\DoxyCodeLine{48             db = QSqlDatabase::addDatabase(\textcolor{stringliteral}{"{}QSQLITE"{}});}
+\DoxyCodeLine{49             db.setDatabaseName(\textcolor{stringliteral}{"{}db.db"{}});}
+\DoxyCodeLine{50             \textcolor{keywordflow}{if} (db.open())}
+\DoxyCodeLine{51                \{}
+\DoxyCodeLine{52                 QSqlQuery query;}
+\DoxyCodeLine{53                                    query.exec(\textcolor{stringliteral}{"{}create table User "{}}}
+\DoxyCodeLine{54                                              \textcolor{stringliteral}{"{}(login varchar(40),"{}}}
+\DoxyCodeLine{55                                               \textcolor{stringliteral}{"{}password varchar(40), "{}}}
+\DoxyCodeLine{56                                              \textcolor{stringliteral}{"{}email varchar(40), "{}}}
+\DoxyCodeLine{57                                               \textcolor{stringliteral}{"{}task1 integer,"{}}}
+\DoxyCodeLine{58                                               \textcolor{stringliteral}{"{}task2 integer,"{}}}
+\DoxyCodeLine{59                                               \textcolor{stringliteral}{"{}task3 integer,"{}}}
+\DoxyCodeLine{60                                               \textcolor{stringliteral}{"{}task4 integer)"{}}}
+\DoxyCodeLine{61                                              );}
+\DoxyCodeLine{62             \}}
+\DoxyCodeLine{63 }
+\DoxyCodeLine{64         \}}
+\DoxyCodeLine{65         \mbox{\hyperlink{class_data_base}{\string~DataBase}}()\{}
+\DoxyCodeLine{66             db.close();}
+\DoxyCodeLine{67         \}}
+\DoxyCodeLine{68     \textcolor{keyword}{public}:}
+\DoxyCodeLine{74         \textcolor{keyword}{static} \mbox{\hyperlink{class_data_base}{DataBase}}* \mbox{\hyperlink{class_data_base_a2ef68c966ce13484fcb683d8f787c419}{getInstance}}()\{}
+\DoxyCodeLine{75             \textcolor{keywordflow}{if} (!p\_instance)}
+\DoxyCodeLine{76             \{}
+\DoxyCodeLine{77                 p\_instance = \textcolor{keyword}{new} \mbox{\hyperlink{class_data_base}{DataBase}}();}
+\DoxyCodeLine{78 }
+\DoxyCodeLine{79 }
+\DoxyCodeLine{80 }
+\DoxyCodeLine{81 }
+\DoxyCodeLine{82                 destroyer.initialize(p\_instance);}
+\DoxyCodeLine{83             \}}
+\DoxyCodeLine{84             \textcolor{keywordflow}{return} p\_instance;}
+\DoxyCodeLine{85         \}}
+\DoxyCodeLine{86 }
+\DoxyCodeLine{94         \textcolor{keyword}{static} QString \mbox{\hyperlink{class_data_base_a9df6e6a5c11f72d1750c712f9b03c85a}{addData}}(QString login, QString password, QString email) \{}
+\DoxyCodeLine{95             \textcolor{keywordflow}{if} (\mbox{\hyperlink{class_data_base_afb171de830c178f809d9608498a334f8}{DataBase::dataCheck}}(login, password) != \textcolor{stringliteral}{"{}404"{}}) \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}200"{}};}
+\DoxyCodeLine{96             \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{97                 QSqlQuery query(db);}
+\DoxyCodeLine{98                 query.prepare(\textcolor{stringliteral}{"{}INSERT INTO User(login, password, email)"{}}}
+\DoxyCodeLine{99                                 \textcolor{stringliteral}{"{}VALUES (:login, :password, :email)"{}});}
+\DoxyCodeLine{100                 query.bindValue(\textcolor{stringliteral}{"{}:login"{}}, login);}
+\DoxyCodeLine{101                 query.bindValue(\textcolor{stringliteral}{"{}:password"{}}, password);}
+\DoxyCodeLine{102                 query.bindValue(\textcolor{stringliteral}{"{}:email"{}}, email);}
+\DoxyCodeLine{103                 query.exec();}
+\DoxyCodeLine{104             \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}true"{}};}
+\DoxyCodeLine{105             \}}
+\DoxyCodeLine{106         \};}
+\DoxyCodeLine{112         \textcolor{keyword}{static} QString \mbox{\hyperlink{class_data_base_aed1075e3a582dddbf8a89401a8f913e1}{get}}(QString login) \{}
+\DoxyCodeLine{113             QSqlQuery query(db);}
+\DoxyCodeLine{114             query.prepare(\textcolor{stringliteral}{"{}SELECT * FROM User where login = :login"{}});}
+\DoxyCodeLine{115             query.bindValue(\textcolor{stringliteral}{"{}:login"{}}, login);}
+\DoxyCodeLine{116             query.exec();}
+\DoxyCodeLine{117             QSqlRecord rec = query.record();}
+\DoxyCodeLine{118             \textcolor{keywordtype}{int} taskIndex = rec.indexOf(\textcolor{stringliteral}{"{}task1"{}});}
+\DoxyCodeLine{119             query.next();}
+\DoxyCodeLine{120             QString res = QString::number(query.value(taskIndex).toInt())+\textcolor{stringliteral}{"{} "{}};}
+\DoxyCodeLine{121             res.append(QString::number(query.value(taskIndex+1).toInt())+\textcolor{stringliteral}{"{} "{}});}
+\DoxyCodeLine{122             res.append(QString::number(query.value(taskIndex+2).toInt())+\textcolor{stringliteral}{"{} "{}});}
+\DoxyCodeLine{123             res.append(QString::number(query.value(taskIndex+3).toInt()));}
+\DoxyCodeLine{124             qDebug() << res;}
+\DoxyCodeLine{125             \textcolor{keywordflow}{return} res;}
+\DoxyCodeLine{126         \}}
+\DoxyCodeLine{133         \textcolor{keyword}{static} QString \mbox{\hyperlink{class_data_base_af3a6f107c54a8f8a225a9ee125a522ff}{addTask}}(QString login, QString num) \{}
+\DoxyCodeLine{134 }
+\DoxyCodeLine{135              QSqlQuery query(db);}
+\DoxyCodeLine{136              query.prepare(\textcolor{stringliteral}{"{}SELECT * FROM User where login = :login"{}});}
+\DoxyCodeLine{137              query.bindValue(\textcolor{stringliteral}{"{}:login"{}}, login);}
+\DoxyCodeLine{138              query.exec();}
+\DoxyCodeLine{139              QSqlRecord rec = query.record();}
+\DoxyCodeLine{140              \textcolor{keywordtype}{int} taskIndex = rec.indexOf(\textcolor{stringliteral}{"{}task"{}}+num);}
+\DoxyCodeLine{141              query.next();}
+\DoxyCodeLine{142              \textcolor{keywordtype}{int} taskNum = query.value(taskIndex).toInt();}
+\DoxyCodeLine{143              query.prepare(\textcolor{stringliteral}{"{}UPDATE User SET task"{}}+num+\textcolor{stringliteral}{"{}=:num WHERE login = :login"{}});}
+\DoxyCodeLine{144              query.bindValue(\textcolor{stringliteral}{"{}:login"{}}, login);}
+\DoxyCodeLine{145              query.bindValue(\textcolor{stringliteral}{"{}:num"{}}, taskNum+1);}
+\DoxyCodeLine{146              query.exec();}
+\DoxyCodeLine{147             \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}true"{}};}
+\DoxyCodeLine{148         \};}
+\DoxyCodeLine{149 }
+\DoxyCodeLine{156         \textcolor{keyword}{static} QString \mbox{\hyperlink{class_data_base_afb171de830c178f809d9608498a334f8}{dataCheck}}(QString login, QString password) \{}
+\DoxyCodeLine{157             QSqlQuery query(db);}
+\DoxyCodeLine{158             query.prepare(\textcolor{stringliteral}{"{}SELECT * FROM User where login = :login"{}});}
+\DoxyCodeLine{159             query.bindValue(\textcolor{stringliteral}{"{}:login"{}}, login);}
+\DoxyCodeLine{160             query.exec();}
+\DoxyCodeLine{161             QSqlRecord rec = query.record();}
+\DoxyCodeLine{162             \textcolor{keywordtype}{int} PasswordIndex = rec.indexOf(\textcolor{stringliteral}{"{}password"{}});}
+\DoxyCodeLine{163             \textcolor{keywordflow}{if} (!query.next()) \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}404"{}};}
+\DoxyCodeLine{164             \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{165                 QString TruePassword = query.value(PasswordIndex).toString();}
+\DoxyCodeLine{166                 \textcolor{keywordflow}{if} (TruePassword == password) \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}true"{}};}
+\DoxyCodeLine{167                 \textcolor{keywordflow}{else} \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}400"{}};}
+\DoxyCodeLine{168             \}}
+\DoxyCodeLine{169         \}}
+\DoxyCodeLine{170 }
+\DoxyCodeLine{171 }
+\DoxyCodeLine{177 \};}
+\DoxyCodeLine{178 }
+\DoxyCodeLine{179 }
+\DoxyCodeLine{180 \mbox{\hyperlink{class_data_base}{DataBase}} * DataBase::p\_instance = \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{181 \mbox{\hyperlink{class_data_base_destroyer}{DataBaseDestroyer}} DataBase::destroyer;}
+\DoxyCodeLine{182 QSqlDatabase DataBase::db;}
+\DoxyCodeLine{183 }
+\DoxyCodeLine{184 \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

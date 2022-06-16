@@ -1,0 +1,135 @@
+\hypertarget{class_data_base}{}\doxysection{Data\+Base Class Reference}
+\label{class_data_base}\index{DataBase@{DataBase}}
+
+
+\mbox{\hyperlink{class_data_base}{Data\+Base}} -\/ класс, описывающий взаимодействией с базой даннах  
+
+
+
+
+{\ttfamily \#include $<$Data\+Base.\+h$>$}
+
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{class_data_base}{Data\+Base}} $\ast$ \mbox{\hyperlink{class_data_base_a2ef68c966ce13484fcb683d8f787c419}{get\+Instance}} ()
+\begin{DoxyCompactList}\small\item\em get\+Instance -\/ функция, вовзращающая ссылку на текущую бд \end{DoxyCompactList}\item 
+static QString \mbox{\hyperlink{class_data_base_a9df6e6a5c11f72d1750c712f9b03c85a}{add\+Data}} (QString login, QString password, QString email)
+\begin{DoxyCompactList}\small\item\em add\+Data -\/ функция, записывающая данные в бд \end{DoxyCompactList}\item 
+static QString \mbox{\hyperlink{class_data_base_aed1075e3a582dddbf8a89401a8f913e1}{get}} (QString login)
+\begin{DoxyCompactList}\small\item\em get -\/ функция, получающая данные из бд \end{DoxyCompactList}\item 
+static QString \mbox{\hyperlink{class_data_base_af3a6f107c54a8f8a225a9ee125a522ff}{add\+Task}} (QString login, QString num)
+\begin{DoxyCompactList}\small\item\em get -\/ функция, изменяющая статистику \end{DoxyCompactList}\item 
+static QString \mbox{\hyperlink{class_data_base_afb171de830c178f809d9608498a334f8}{data\+Check}} (QString login, QString password)
+\begin{DoxyCompactList}\small\item\em data\+Check -\/ функция, проверяющая наличие данных в бд \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\mbox{\hyperlink{class_data_base}{Data\+Base}} -\/ класс, описывающий взаимодействией с базой даннах 
+
+Класс \mbox{\hyperlink{class_data_base}{Data\+Base}} используется для того, чтобы создать базу данных, открыть его, записать в неё данные и получить требуемые результаты 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_data_base_a9df6e6a5c11f72d1750c712f9b03c85a}\label{class_data_base_a9df6e6a5c11f72d1750c712f9b03c85a}} 
+\index{DataBase@{DataBase}!addData@{addData}}
+\index{addData@{addData}!DataBase@{DataBase}}
+\doxysubsubsection{\texorpdfstring{addData()}{addData()}}
+{\footnotesize\ttfamily static QString Data\+Base\+::add\+Data (\begin{DoxyParamCaption}\item[{QString}]{login,  }\item[{QString}]{password,  }\item[{QString}]{email }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+add\+Data -\/ функция, записывающая данные в бд 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em login} & -\/ логин клиента \\
+\hline
+\mbox{\texttt{ in}}  & {\em password} & -\/ пароль клиента \\
+\hline
+\mbox{\texttt{ in}}  & {\em email} & -\/ почта клиента \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Возвращает результат записи 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_data_base_af3a6f107c54a8f8a225a9ee125a522ff}\label{class_data_base_af3a6f107c54a8f8a225a9ee125a522ff}} 
+\index{DataBase@{DataBase}!addTask@{addTask}}
+\index{addTask@{addTask}!DataBase@{DataBase}}
+\doxysubsubsection{\texorpdfstring{addTask()}{addTask()}}
+{\footnotesize\ttfamily static QString Data\+Base\+::add\+Task (\begin{DoxyParamCaption}\item[{QString}]{login,  }\item[{QString}]{num }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+get -\/ функция, изменяющая статистику 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em login} & -\/ логин клиента \\
+\hline
+\mbox{\texttt{ in}}  & {\em num} & -\/ номер задания \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Возвращает результат операции 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_data_base_afb171de830c178f809d9608498a334f8}\label{class_data_base_afb171de830c178f809d9608498a334f8}} 
+\index{DataBase@{DataBase}!dataCheck@{dataCheck}}
+\index{dataCheck@{dataCheck}!DataBase@{DataBase}}
+\doxysubsubsection{\texorpdfstring{dataCheck()}{dataCheck()}}
+{\footnotesize\ttfamily static QString Data\+Base\+::data\+Check (\begin{DoxyParamCaption}\item[{QString}]{login,  }\item[{QString}]{password }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+data\+Check -\/ функция, проверяющая наличие данных в бд 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em login} & -\/ логин клиента \\
+\hline
+\mbox{\texttt{ in}}  & {\em password} & -\/ пароль клиента \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Возвращает результат проверки 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_data_base_aed1075e3a582dddbf8a89401a8f913e1}\label{class_data_base_aed1075e3a582dddbf8a89401a8f913e1}} 
+\index{DataBase@{DataBase}!get@{get}}
+\index{get@{get}!DataBase@{DataBase}}
+\doxysubsubsection{\texorpdfstring{get()}{get()}}
+{\footnotesize\ttfamily static QString Data\+Base\+::get (\begin{DoxyParamCaption}\item[{QString}]{login }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+get -\/ функция, получающая данные из бд 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em login} & -\/ логин клиента \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Возвращает запись 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_data_base_a2ef68c966ce13484fcb683d8f787c419}\label{class_data_base_a2ef68c966ce13484fcb683d8f787c419}} 
+\index{DataBase@{DataBase}!getInstance@{getInstance}}
+\index{getInstance@{getInstance}!DataBase@{DataBase}}
+\doxysubsubsection{\texorpdfstring{getInstance()}{getInstance()}}
+{\footnotesize\ttfamily static \mbox{\hyperlink{class_data_base}{Data\+Base}} $\ast$ Data\+Base\+::get\+Instance (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+get\+Instance -\/ функция, вовзращающая ссылку на текущую бд 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em email} & -\/ почта клиента \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Возвращает ссылку на текущую или, если такая отсутсвует, новую бд 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{_data_base_8h}{Data\+Base.\+h}}\end{DoxyCompactItemize}

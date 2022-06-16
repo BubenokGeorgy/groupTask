@@ -1,0 +1,28 @@
+\hypertarget{mytcpserver_8h_source}{}\doxysection{mytcpserver.\+h}
+\mbox{\hyperlink{mytcpserver_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 }
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#ifndef MYTCPSERVER\_H}}
+\DoxyCodeLine{7 \textcolor{preprocessor}{\#define MYTCPSERVER\_H}}
+\DoxyCodeLine{8 }
+\DoxyCodeLine{9 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{mytcpthread_8h}{mytcpthread.h}}"{}}}
+\DoxyCodeLine{10 \textcolor{preprocessor}{\#include <QObject>}}
+\DoxyCodeLine{11 \textcolor{preprocessor}{\#include <QTcpServer>}}
+\DoxyCodeLine{12 \textcolor{preprocessor}{\#include <QtNetwork>}}
+\DoxyCodeLine{13 \textcolor{preprocessor}{\#include <QDebug>}}
+\DoxyCodeLine{14 \textcolor{preprocessor}{\#include <QTcpSocket>}}
+\DoxyCodeLine{15 }
+\DoxyCodeLine{20 \textcolor{keyword}{class }\mbox{\hyperlink{class_my_tcp_server}{MyTcpServer}} : \textcolor{keyword}{public} QTcpServer}
+\DoxyCodeLine{21 \{}
+\DoxyCodeLine{22     Q\_OBJECT}
+\DoxyCodeLine{23 \textcolor{keyword}{public}:}
+\DoxyCodeLine{29     \textcolor{keyword}{explicit} \mbox{\hyperlink{class_my_tcp_server_acf367c4695b4d160c7a2d25c2afaaec4}{MyTcpServer}}(QObject *parent = \textcolor{keyword}{nullptr});}
+\DoxyCodeLine{30     \mbox{\hyperlink{class_my_tcp_server}{\string~MyTcpServer}}();}
+\DoxyCodeLine{31 \textcolor{keyword}{protected}:}
+\DoxyCodeLine{37     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_my_tcp_server_a76f512c55d69d2202facb76016cdf695}{incomingConnection}}(qintptr socketDescriptor);}
+\DoxyCodeLine{38 \textcolor{keyword}{private}:}
+\DoxyCodeLine{39 \};}
+\DoxyCodeLine{40 }
+\DoxyCodeLine{41 \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

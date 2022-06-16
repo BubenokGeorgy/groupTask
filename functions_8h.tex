@@ -1,0 +1,98 @@
+\hypertarget{functions_8h}{}\doxysection{functions.\+h File Reference}
+\label{functions_8h}\index{functions.h@{functions.h}}
+
+
+Заголовочный файл, определяющий функции сервера для взаимодействия с клиентом  
+
+
+{\ttfamily \#include $<$QString\+List$>$}\newline
+{\ttfamily \#include $<$QString$>$}\newline
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+QByte\+Array \mbox{\hyperlink{functions_8h_ad0cafa2ee9184c90719a22f1ea442ef3}{parse}} (QString data\+\_\+from\+\_\+client, qintptr socket\+Descriptor)
+\begin{DoxyCompactList}\small\item\em parse -\/ функция, выполняющая парсинг сообщений клиента для дальней передачи параметров функциям \end{DoxyCompactList}\item 
+QByte\+Array \mbox{\hyperlink{functions_8h_a7247a7e04dc1e3a842343f0d879b4df5}{auth}} (QString login, QString password, qintptr socket\+Descriptor)
+\begin{DoxyCompactList}\small\item\em auth -\/ функция, коотрая проверчяет существование аккаунта и если он есть, то проводится аутентификация клиента \end{DoxyCompactList}\item 
+QByte\+Array \mbox{\hyperlink{functions_8h_a38d87a7e02adf3da13f5636f3552164f}{reg}} (QString login, QString password, QString email, qintptr socket\+Descriptor)
+\begin{DoxyCompactList}\small\item\em reg -\/ функция, которая проверяет существование аккаунта клиента и если его нет,то проводится регистрация клиента \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{functions_8h_a3b657866307b807caa30a3e8b4ca0da4}\label{functions_8h_a3b657866307b807caa30a3e8b4ca0da4}} 
+QByte\+Array {\bfseries add} (QString login, QString num, qintptr socket\+Descriptor)
+\item 
+\mbox{\Hypertarget{functions_8h_a0e25948b009029cbf7bda5d9836af316}\label{functions_8h_a0e25948b009029cbf7bda5d9836af316}} 
+QByte\+Array {\bfseries get\+Stat} (QString login, qintptr socket\+Descriptor)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Заголовочный файл, определяющий функции сервера для взаимодействия с клиентом 
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{functions_8h_a7247a7e04dc1e3a842343f0d879b4df5}\label{functions_8h_a7247a7e04dc1e3a842343f0d879b4df5}} 
+\index{functions.h@{functions.h}!auth@{auth}}
+\index{auth@{auth}!functions.h@{functions.h}}
+\doxysubsubsection{\texorpdfstring{auth()}{auth()}}
+{\footnotesize\ttfamily QByte\+Array auth (\begin{DoxyParamCaption}\item[{QString}]{login,  }\item[{QString}]{password,  }\item[{qintptr}]{socket\+Descriptor }\end{DoxyParamCaption})}
+
+
+
+auth -\/ функция, коотрая проверчяет существование аккаунта и если он есть, то проводится аутентификация клиента 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em login} & -\/ логин, полученный из сообщения пользователя \\
+\hline
+\mbox{\texttt{ in}}  & {\em password} & -\/ пароль, полученный из сообщения пользователя \\
+\hline
+\mbox{\texttt{ in}}  & {\em socket\+Descriptor} & -\/ дескриптор сокета клиента, совершающего аутентификацию \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Возвращает сообщение с результатом аутентификации пользователя 
+\end{DoxyReturn}
+\mbox{\Hypertarget{functions_8h_ad0cafa2ee9184c90719a22f1ea442ef3}\label{functions_8h_ad0cafa2ee9184c90719a22f1ea442ef3}} 
+\index{functions.h@{functions.h}!parse@{parse}}
+\index{parse@{parse}!functions.h@{functions.h}}
+\doxysubsubsection{\texorpdfstring{parse()}{parse()}}
+{\footnotesize\ttfamily QByte\+Array parse (\begin{DoxyParamCaption}\item[{QString}]{data\+\_\+from\+\_\+client,  }\item[{qintptr}]{socket\+Descriptor }\end{DoxyParamCaption})}
+
+
+
+parse -\/ функция, выполняющая парсинг сообщений клиента для дальней передачи параметров функциям 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em command} & -\/ сообщение клиента \\
+\hline
+\mbox{\texttt{ in}}  & {\em socket\+Descriptor} & -\/ дескриптор сокета клиента, от которого было получено сообщение \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Возвращает результат работы функции, вызываемой клиентом 
+\end{DoxyReturn}
+\mbox{\Hypertarget{functions_8h_a38d87a7e02adf3da13f5636f3552164f}\label{functions_8h_a38d87a7e02adf3da13f5636f3552164f}} 
+\index{functions.h@{functions.h}!reg@{reg}}
+\index{reg@{reg}!functions.h@{functions.h}}
+\doxysubsubsection{\texorpdfstring{reg()}{reg()}}
+{\footnotesize\ttfamily QByte\+Array reg (\begin{DoxyParamCaption}\item[{QString}]{login,  }\item[{QString}]{password,  }\item[{QString}]{email,  }\item[{qintptr}]{socket\+Descriptor }\end{DoxyParamCaption})}
+
+
+
+reg -\/ функция, которая проверяет существование аккаунта клиента и если его нет,то проводится регистрация клиента 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em login} & -\/ логин, полученный из сообщения пользователя \\
+\hline
+\mbox{\texttt{ in}}  & {\em password} & -\/ создаваемый пароль, полученный из сообщения пользователя \\
+\hline
+\mbox{\texttt{ in}}  & {\em email} & -\/ электронная почта, полученная из сообщения пользователя \\
+\hline
+\mbox{\texttt{ in}}  & {\em socket\+Descriptor} & -\/ дескриптор сокета клиента, совершающего регистрацию \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Возвращает сообщение с результатом регистрации пользователя 
+\end{DoxyReturn}
