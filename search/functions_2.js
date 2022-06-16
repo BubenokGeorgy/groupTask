@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['datacheck_0',['dataCheck',['../class_data_base.html#afb171de830c178f809d9608498a334f8',1,'DataBase']]],
-  ['disconnected_1',['disconnected',['../class_my_tcp_thread.html#a0aee2742ec4740c922981dc5df7d9de3',1,'MyTcpThread']]]
+  ['get_0',['get',['../class_data_base.html#aed1075e3a582dddbf8a89401a8f913e1',1,'DataBase']]],
+  ['getinstance_1',['getInstance',['../class_data_base.html#a2ef68c966ce13484fcb683d8f787c419',1,'DataBase']]]
 ];

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['getinstance_0',['getInstance',['../class_data_base.html#a2ef68c966ce13484fcb683d8f787c419',1,'DataBase']]]
+  ['incomingconnection_0',['incomingConnection',['../class_my_tcp_server.html#a76f512c55d69d2202facb76016cdf695',1,'MyTcpServer']]]
 ];
