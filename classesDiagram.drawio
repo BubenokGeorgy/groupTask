@@ -1,6 +1,6 @@
-<mxfile host="app.diagrams.net" modified="2022-04-07T10:01:58.874Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/100.0.4896.75 Safari/537.36" etag="rZk_0XBfYGmPHYm_dbbN" version="17.4.0" type="github">
+<mxfile host="app.diagrams.net" modified="2022-06-16T06:00:20.853Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/102.0.0.0 Safari/537.36" etag="JQP_Lu9kq7EtxOzp_F64" version="20.0.1" type="github">
   <diagram id="ZW2vgLGIhSbJTFfGohbX" name="Page-1">
-    <mxGraphModel dx="524" dy="743" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+    <mxGraphModel dx="2062" dy="762" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -26,8 +26,14 @@
             </Array>
           </mxGeometry>
         </mxCell>
-        <mxCell id="kmTU4wqFB0YYlvJailBI-1" value="reg login password email&lt;br&gt;auth login password" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;labelBackgroundColor=#FFFFFF;fontColor=#000000;" vertex="1" parent="1">
+        <mxCell id="kmTU4wqFB0YYlvJailBI-1" value="reg login password email&lt;br&gt;auth login password" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;labelBackgroundColor=#FFFFFF;fontColor=#000000;" parent="1" vertex="1">
           <mxGeometry y="240" width="180" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="N4JMq9eUnlqVhlOhlT8B-1" value="functions" style="swimlane;html=1;" vertex="1" parent="1">
+          <mxGeometry x="590" y="240" width="300" height="140" as="geometry" />
+        </mxCell>
+        <mxCell id="N4JMq9eUnlqVhlOhlT8B-2" value="&lt;blockquote style=&quot;margin: 0 0 0 40px; border: none; padding: 0px;&quot;&gt;&lt;/blockquote&gt;&lt;br&gt;QByteArray &lt;span style=&quot;font-weight: 700;&quot;&gt;parse&lt;/span&gt;(QString data_from_client)&lt;br&gt;QByteArray &lt;span style=&quot;font-weight: 700;&quot;&gt;auth&lt;/span&gt;(QString login, QString password)&lt;br&gt;QByteArray &lt;span style=&quot;font-weight: 700;&quot;&gt;reg&lt;/span&gt;(QString login, QString password, QString email)&lt;br&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;QByteArray &lt;/span&gt;&lt;span style=&quot;background-color: initial; font-weight: 700;&quot;&gt;add&lt;/span&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;(QString login, QString num)&lt;/span&gt;&lt;br&gt;&lt;pre style=&quot;margin-top: 0px; margin-bottom: 0px;&quot;&gt;QByteArray &lt;span style=&quot;font-weight:700;&quot;&gt;getStat&lt;/span&gt;(QString login)&lt;/pre&gt;&lt;pre style=&quot;font-size: 12px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-indent: 0px; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(248, 249, 250); text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial; margin-top: 0px; margin-bottom: 0px;&quot;&gt;&lt;pre style=&quot;margin-top: 0px; margin-bottom: 0px;&quot;&gt;&lt;/pre&gt;&lt;/pre&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="N4JMq9eUnlqVhlOhlT8B-1">
+          <mxGeometry x="10" y="10" width="280" height="130" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
