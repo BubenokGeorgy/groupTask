@@ -83,13 +83,15 @@ Static Public Member Functions</h2></td></tr>
 <tr class="memitem:a9df6e6a5c11f72d1750c712f9b03c85a"><td class="memItemLeft" align="right" valign="top">static QString&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_data_base.html#a9df6e6a5c11f72d1750c712f9b03c85a">addData</a> (QString login, QString password, QString email)</td></tr>
 <tr class="memdesc:a9df6e6a5c11f72d1750c712f9b03c85a"><td class="mdescLeft">&#160;</td><td class="mdescRight">addData - функция, записывающая данные в бд  <a href="class_data_base.html#a9df6e6a5c11f72d1750c712f9b03c85a">More...</a><br /></td></tr>
 <tr class="separator:a9df6e6a5c11f72d1750c712f9b03c85a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aed1075e3a582dddbf8a89401a8f913e1"><td class="memItemLeft" align="right" valign="top">static QString&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_data_base.html#aed1075e3a582dddbf8a89401a8f913e1">get</a> (QString login)</td></tr>
+<tr class="memdesc:aed1075e3a582dddbf8a89401a8f913e1"><td class="mdescLeft">&#160;</td><td class="mdescRight">get - функция, получающая данные из бд  <a href="class_data_base.html#aed1075e3a582dddbf8a89401a8f913e1">More...</a><br /></td></tr>
+<tr class="separator:aed1075e3a582dddbf8a89401a8f913e1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af3a6f107c54a8f8a225a9ee125a522ff"><td class="memItemLeft" align="right" valign="top">static QString&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_data_base.html#af3a6f107c54a8f8a225a9ee125a522ff">addTask</a> (QString login, QString num)</td></tr>
+<tr class="memdesc:af3a6f107c54a8f8a225a9ee125a522ff"><td class="mdescLeft">&#160;</td><td class="mdescRight">get - функция, изменяющая статистику  <a href="class_data_base.html#af3a6f107c54a8f8a225a9ee125a522ff">More...</a><br /></td></tr>
+<tr class="separator:af3a6f107c54a8f8a225a9ee125a522ff"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afb171de830c178f809d9608498a334f8"><td class="memItemLeft" align="right" valign="top">static QString&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_data_base.html#afb171de830c178f809d9608498a334f8">dataCheck</a> (QString login, QString password)</td></tr>
 <tr class="memdesc:afb171de830c178f809d9608498a334f8"><td class="mdescLeft">&#160;</td><td class="mdescRight">dataCheck - функция, проверяющая наличие данных в бд  <a href="class_data_base.html#afb171de830c178f809d9608498a334f8">More...</a><br /></td></tr>
 <tr class="separator:afb171de830c178f809d9608498a334f8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7861708701cfc60a8c5eb1ab76ffac3c"><td class="memItemLeft" align="right" valign="top"><a id="a7861708701cfc60a8c5eb1ab76ffac3c" name="a7861708701cfc60a8c5eb1ab76ffac3c"></a>
-static void&#160;</td><td class="memItemRight" valign="bottom"><b>closeDB</b> ()</td></tr>
-<tr class="memdesc:a7861708701cfc60a8c5eb1ab76ffac3c"><td class="mdescLeft">&#160;</td><td class="mdescRight">closeDB - функция, закрываюшая базу данных <br /></td></tr>
-<tr class="separator:a7861708701cfc60a8c5eb1ab76ffac3c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p ><a class="el" href="class_data_base.html" title="DataBase - класс, описывающий взаимодействией с базой даннах">DataBase</a> - класс, описывающий взаимодействией с базой даннах </p>
@@ -148,6 +150,52 @@ static void&#160;</td><td class="memItemRight" valign="bottom"><b>closeDB</b> ()
 
 </div>
 </div>
+<a id="af3a6f107c54a8f8a225a9ee125a522ff" name="af3a6f107c54a8f8a225a9ee125a522ff"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af3a6f107c54a8f8a225a9ee125a522ff">&#9670;&nbsp;</a></span>addTask()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static QString DataBase::addTask </td>
+          <td>(</td>
+          <td class="paramtype">QString&#160;</td>
+          <td class="paramname"><em>login</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">QString&#160;</td>
+          <td class="paramname"><em>num</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>get - функция, изменяющая статистику </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">login</td><td>- логин клиента </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">num</td><td>- номер задания </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Возвращает результат операции </dd></dl>
+
+</div>
+</div>
 <a id="afb171de830c178f809d9608498a334f8" name="afb171de830c178f809d9608498a334f8"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#afb171de830c178f809d9608498a334f8">&#9670;&nbsp;</a></span>dataCheck()</h2>
 
@@ -191,6 +239,41 @@ static void&#160;</td><td class="memItemRight" valign="bottom"><b>closeDB</b> ()
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Возвращает результат проверки </dd></dl>
+
+</div>
+</div>
+<a id="aed1075e3a582dddbf8a89401a8f913e1" name="aed1075e3a582dddbf8a89401a8f913e1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aed1075e3a582dddbf8a89401a8f913e1">&#9670;&nbsp;</a></span>get()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static QString DataBase::get </td>
+          <td>(</td>
+          <td class="paramtype">QString&#160;</td>
+          <td class="paramname"><em>login</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>get - функция, получающая данные из бд </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">login</td><td>- логин клиента </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Возвращает запись </dd></dl>
 
 </div>
 </div>
